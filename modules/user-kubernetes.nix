@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  ########################
-  # User "kubernetes"
-  ########################
-
   users.users.kubernetes = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
@@ -26,16 +22,16 @@
     programs = {
       zsh = {
         enable = true;
-        ohMyZsh = {
-          enable = true;
-          theme = "robbyrussell";
-          plugins = [
-            "sudo"
-            "terraform"
-            "systemadmin"
-            "vi-mode"
-          ];
-        };
+#        ohMyZsh = {
+#          enable = true;
+#          theme = "robbyrussell";
+#          plugins = [
+#            "sudo"
+#            "terraform"
+#            "systemadmin"
+#            "vi-mode"
+#          ];
+#        };
       };
     };
 
