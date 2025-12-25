@@ -17,7 +17,10 @@
           --disable traefik \
           --node-name ${config.networking.hostName}
       '';
-
+    ExecStartPost = ''
+      chmod 644 /etc/rancher/k3s/k3s.yaml
+      chown root:kubernetes /etc/rancher/k3s/k3s.yaml
+    '';
       Restart = "always";
       RestartSec = 5;
 
