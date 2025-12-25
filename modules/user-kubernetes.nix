@@ -9,31 +9,6 @@
             ];
     };
 
-  home-manager.users.kubernetes = { pkgs, ... }: {
-    home.username = "kubernetes";
-    home.homeDirectory = "/home/kubernetes";
-
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestions.enable = true;
-      syntaxHighlighting.enable = true;
-
-      ohMyZsh = {
-        enable = true;
-        theme = "agnoster";
-        plugins = [
-          "git"
-          "docker"
-          "z"
-        ];
-      };
-    };
-
-    programs.git.enable = true;
-
-    home.stateVersion = "24.05";
-  };
 
 boot.initrd.supportedFilesystems = [ "ext4" ];
 boot.supportedFilesystems = [ "ext4" ];
