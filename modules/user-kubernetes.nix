@@ -23,20 +23,19 @@
     home.username = "kubernetes";
     home.homeDirectory = "/home/kubernetes";
 
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-#      autosuggestions.enable = true;
-#      syntaxHighlighting.enable = true;
-
-      ohMyZsh = {
+    programs = {
+      zsh = {
         enable = true;
-        theme = "agnoster";
-        plugins = [
-          "git"
-          "docker"
-          "z"
-        ];
+        ohMyZsh = {
+          enable = true;
+          theme = "robbyrussell";
+          plugins = [
+            "sudo"
+            "terraform"
+            "systemadmin"
+            "vi-mode"
+          ];
+        };
       };
     };
 
