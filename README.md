@@ -27,6 +27,13 @@ mkfs.fat -F 32 /dev/vda1
 mkfs.ext4 /dev/sda2
 ```
 
+# Mount
+```bash
+mount /dev/sda2 /mnt
+mkdir -p /mnt/boot
+mount /dev/sda1 /mnt/boot
+```
+
 # Run Setup
 ```bash
 git clone https://github.com/krizi/home-nixos.git /mnt/etc/nixos

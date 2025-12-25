@@ -10,9 +10,6 @@
 
   networking.hostName = "k8s-master-01";
 
-  # HA-Init
-  environment.variables.K3S_CLUSTER_INIT = "true";
-
   k3s.nodeLabels = {
     "topology.kubernetes.io/region" = "ch-central";
     "topology.kubernetes.io/zone" = "hellga";

@@ -9,4 +9,9 @@
   ];
 
   networking.hostName = "k8s-worker-vm-01";
+
+    k3s.nodeLabels = {
+      "topology.kubernetes.io/region" = "ch-central";
+      "topology.kubernetes.io/zone" = "hellga";
+    };
 }

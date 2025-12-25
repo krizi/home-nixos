@@ -14,7 +14,13 @@
 
     serviceConfig = {
       Type = "notify";
-      ExecStart = "${pkgs.k3s}/bin/k3s agent";
+      ExecStart = ''
+        ${pkgs.k3s}/bin/k3s agent \
+          --server https://k8s-master-01:6443 \
+          --token-file /var/lib/rancher/k3s/agent/token \
+          --node-name ${config.networking.hostName} \
+          ${config.environment.variables.K3S_NODE_LABEL_FLAGS}
+      '';
       Restart = "always";
       RestartSec = 5;
 
