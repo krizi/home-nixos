@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  ########################
-  # Basis
-  ########################
-
   networking.useDHCP = true;
   time.timeZone = "Europe/Zurich";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -13,10 +9,6 @@
     keyMap = "de";
     font = "Lat2-Terminus16";
   };
-
-  ########################
-  # SSH + Firewall
-  ########################
 
   services.openssh = {
     enable = true;
@@ -32,18 +24,10 @@
     allowedTCPPorts = [ 22 ];
   };
 
-  ########################
-  # sudo
-  ########################
-
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;
   };
-
-  ########################
-  # Packages / Tools
-  ########################
 
   environment.systemPackages = with pkgs; [
     git
@@ -53,10 +37,6 @@
     wget
     zsh
   ];
-
-  ########################
-  # Bootloader (für „normale“ VMs)
-  ########################
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

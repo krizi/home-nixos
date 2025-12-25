@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./k8s-master-01-hardware.nix
+    ./hellga-vm-hardware.nix
   ];
 
   networking.hostName = "k8s-master-01";
