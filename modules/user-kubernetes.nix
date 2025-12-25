@@ -1,11 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  home = {
-    username = "kubernetes";
-    homeDirectory = "/home/kubernetes";
+  users.users.kubernetes = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "sudo" ];
+    shell = pkgs.bash;
   };
-
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
 }
