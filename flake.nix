@@ -21,6 +21,7 @@
           modules = [
             ./hosts/k8s-master-01.nix
             ./modules/common.nix
+            ./modules/k3s-node-labels.nix
             ./modules/user-kubernetes.nix
             home-manager.nixosModules.home-manager
           ];
@@ -31,6 +32,7 @@
           modules = [
             ./hosts/k8s-worker-vm-01.nix
             ./modules/common.nix
+            ./modules/k3s-node-labels.nix
             ./modules/user-kubernetes.nix
             home-manager.nixosModules.home-manager
           ];
