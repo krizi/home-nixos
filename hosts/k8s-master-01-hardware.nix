@@ -5,8 +5,8 @@
     ];
 
     boot.initrd.availableKernelModules = ["uhci_hcd" "ehci_pci" "ahci" "virtio_pci" "sr_mod" "virtio_blk"];
-    boot.initrd.kernelModuels = [];
-    boot.kernelMdoules = ["kvm-amd"];
+    boot.initrd.kernelModules = [];
+    boot.kernelModules = ["kvm-amd"];
     boot.extraModulePackages = [];
 
     swapDevices = [];
