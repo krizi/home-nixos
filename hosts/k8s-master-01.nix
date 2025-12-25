@@ -6,7 +6,7 @@
   # und verschiebst sie dann nach z. B.:
   #   /etc/nixos/hosts/k8s-master-01-hardware.nix
   imports = [
-    ./k8s-master-01-hardware.nix
+    ../hardware-configuration.nix
   ];
 
   networking.hostName = "k8s-master-01";
