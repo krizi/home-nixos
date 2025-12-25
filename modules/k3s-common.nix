@@ -14,15 +14,6 @@
 
   networking.firewall.enable = false;
 
-  environment.systemPackages = with pkgs; [
-    k0s
-    iproute2
-    iptables
-    conntrack-tools
-    socat
-    curl
-  ];
-
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;
