@@ -21,5 +21,13 @@ sudo parted /dev/vda -- set 1 esp on
 sudo parted /dev/vda -- mkpart primary ext4 513MiB 100%
 ```
 
+# Create Filesystem
+```bash
 mkfs.fat -F 32 /dev/vda1
 mkfs.ext4 /dev/sda2
+```
+
+# Run Setup
+```bash
+git clone https://github.com/krizi/home-nixos.git /mnt/etc/nixos
+```
