@@ -19,11 +19,6 @@
     };
   };
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 22 ];
-  };
-
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;
