@@ -17,7 +17,8 @@
       ExecStart = ''
         ${pkgs.k3s}/bin/k3s server \
           --disable traefik \
-          --node-name ${config.networking.hostName}
+          --node-name ${config.networking.hostName} \
+          ${config.environment.variables.K3S_NODE_LABEL_FLAGS}
       '';
 
       Restart = "always";
