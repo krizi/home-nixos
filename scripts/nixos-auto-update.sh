@@ -130,7 +130,7 @@ GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD || echo "$GIT_BRANCH")"
 
 if nixos-rebuild build --flake ".#$HOSTNAME"; then
   log "Build OK. Switch wird ausgeführt..."
-  nixos-rebuild switch --flake ".#$HOSTNAME"
+  nixos-rebuild switch --flake ".#$HOSTNAME" --no-write-lock-file
   log "Update erfolgreich abgeschlossen."
   end_ts="$(date +%s)"
   write_metrics 1 "$end_ts" "$((end_ts - start_ts))"

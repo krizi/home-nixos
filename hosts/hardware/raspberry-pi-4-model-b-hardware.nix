@@ -22,20 +22,12 @@
     "console=tty1"
   ];
 
-  boot.initrd.supportedFilesystems = [ "ext4" ];
-  boot.supportedFilesystems = [ "ext4" ];
-
-  fileSystems."/" = {
-    device = "/dev/sda1";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/sda2";
-    fsType = "vfat";
-  };
-
   swapDevices = [ ];
+
+  boot.supportedFilesystems = lib.mkForce [
+    "vfat"
+    "ext4"
+  ];
 
   # Übliche Raspberry-Treiber
   hardware.deviceTree.enable = true;
@@ -43,8 +35,4 @@
   networking.useDHCP = lib.mkDefault true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  hardware.firmware = [
-    pkgs.brcm-firmware
-  ];
 }

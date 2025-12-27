@@ -45,7 +45,7 @@
         k8s-worker-rpi-01 = lib.nixosSystem {
           system = "aarch64-linux";
           modules = [
-            ./hosts/k8s-worker-rpi-01
+            ./hosts/k8s-worker-rpi-01.nix
             ./modules/common.nix
             ./modules/k3s-node-labels.nix
             ./modules/user-kubernetes.nix

@@ -38,4 +38,7 @@
     device = "/dev/vda1";
     fsType = "vfat";
   };
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 }

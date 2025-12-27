@@ -46,3 +46,16 @@ scp kubernetes@k8s-master-01:/etc/rancher/k3s/k3s.yaml $HOME/.kube/config
 ```
 
 # Raspberry Pi Setup
+
+## Build Nix SD-Image
+```bash
+docker run \
+-v "$PWD":/workdir \
+-v "$PWD/.nix-store":/nix/store \
+-v "$PWD/.nix-tmp":/tmp \
+-e NIX_CONFIG="experimental-features = nix-command flakes" \
+-w /workdir \
+-i \
+nixos/nix \
+nix build .#nixosConfigurations.k8s-worker-rpi-01.config.system.build.sdImage
+```

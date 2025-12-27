@@ -7,7 +7,7 @@
 
 {
   imports = [
-    (modulesPath + "/installer/cd-dvd/sd-image-aarch64.nix")
+    (modulesPath + "/installer/sd-card/sd-image-aarch64-installer.nix")
   ];
 
   nixpkgs.hostPlatform = "aarch64-linux";
