@@ -11,15 +11,15 @@ in
     autoUpdateScript
   ];
 
-  path = [
-    pkgs.git
-    pkgs.nixos-rebuild
-    pkgs.coreutils
-    pkgs.bash
-  ];
-
   systemd.services.nixos-auto-update = {
     description = "Auto-update NixOS from Git with Prometheus metrics";
+
+    path = [
+      pkgs.git
+      pkgs.nixos-rebuild
+      pkgs.coreutils
+      pkgs.bash
+    ];
     serviceConfig = {
       Type = "oneshot";
       StandardOutput = "journal";
