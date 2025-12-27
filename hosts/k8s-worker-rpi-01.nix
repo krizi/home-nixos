@@ -7,6 +7,7 @@
     ../modules/user-kubernetes.nix
     ../modules/k3s-agent.nix
     ../modules/auto-update.nix
+    ../modules/raspi-sd-image.nix
   ];
 
   networking.hostName = "k8s-worker-rpi-01";

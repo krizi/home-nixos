@@ -1,23 +1,23 @@
 # Prepare Filesystem
 ## Wipe Filesystem
-```bash 
+```bash
 sudo wipefs -a /dev/vda
 sudo sgdisk -Z /dev/vda
 ```
 
 ## Create Partitions
-```bash 
+```bash
 sudo parted /dev/vda -- mklabel gpt
 ```
 
 ### EFI Partition (512 MiB)
-```bash 
+```bash
 sudo parted /dev/vda -- mkpart primary fat32 1MiB 513MiB
 sudo parted /dev/vda -- set 1 esp on
 ```
 
 ### Root Partition (Rest)
-```bash 
+```bash
 sudo parted /dev/vda -- mkpart primary ext4 513MiB 100%
 ```
 

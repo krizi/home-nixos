@@ -39,14 +39,10 @@
 
   # Übliche Raspberry-Treiber
   hardware.deviceTree.enable = true;
-  hardware.deviceTree.filter = "bcm2711-rpi-4*.dtb";
 
   networking.useDHCP = lib.mkDefault true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  boot.loader.grub.enable = false;
-  boot.loader.generic-extlinux-compatible.enable = true;
 
   hardware.firmware = [
     pkgs.brcm-firmware
