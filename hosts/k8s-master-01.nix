@@ -15,4 +15,8 @@
     "topology.kubernetes.io/region" = "ch-central";
     "topology.kubernetes.io/zone" = "hellga";
   };
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  nix.settings.extra-platforms = [ "aarch64-linux" ];
+
 }
