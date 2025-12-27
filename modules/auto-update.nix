@@ -2,7 +2,7 @@
 
 let
   autoUpdateScript = pkgs.writeShellScriptBin "nixos-auto-update" ''
-    exec /etc/nixos/scripts/nixos-auto-update.sh
+    /etc/nixos/scripts/nixos-auto-update.sh
   '';
 in
 {
@@ -15,6 +15,9 @@ in
     description = "Auto-update NixOS from Git with Prometheus metrics";
     serviceConfig = {
       Type = "oneshot";
+      StandardOutput = "journal";
+      StandardError = "journal";
+
       ExecStart = "${autoUpdateScript}/bin/nixos-auto-update";
       StateDirectory = "nixos-auto-update";
     };

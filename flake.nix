@@ -16,15 +16,13 @@
       ...
     }:
     let
-      # Für VMs auf Apple Silicon: "aarch64-linux"
-      # Für normale x86_64-Kisten: "x86_64-linux"
-      system = "aarch64-linux";
       lib = nixpkgs.lib;
     in
     {
       nixosConfigurations = {
         k8s-master-01 = lib.nixosSystem {
           inherit system;
+          system = "x86_64-linux";
           modules = [
             ./hosts/k8s-master-01.nix
             ./modules/common.nix
@@ -36,6 +34,7 @@
 
         k8s-worker-vm-01 = lib.nixosSystem {
           inherit system;
+          system = "x86_64-linux";
           modules = [
             ./hosts/k8s-worker-vm-01.nix
             ./modules/common.nix
@@ -44,6 +43,20 @@
             home-manager.nixosModules.home-manager
           ];
         };
+
+        k8s-worker-rpi-01 = lib.nixosSystem {
+          inherit system;
+          system = "aarch64-linux";
+          modules = [
+            ./hosts/k8s-worker-rpi-01
+            ./modules/common.nix
+            ./modules/k3s-node-labels.nix
+            ./modules/user-kubernetes.nix
+            ./modules/raspi-sd-image.nix
+            home-manager.nixosModules.home-manager
+          ];
+        };
+
       };
     };
 }

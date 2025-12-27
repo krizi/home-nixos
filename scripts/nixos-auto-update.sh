@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+exec 2>&1
+
 REPO_DIR="/etc/nixos"
 HOSTNAME="$(hostname)"
 STATE_DIR="/var/lib/nixos-auto-update"
