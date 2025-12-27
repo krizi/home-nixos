@@ -18,7 +18,7 @@ in
       StandardOutput = "journal";
       StandardError = "journal";
 
-      ExecStart = "${autoUpdateScript}/bin/nixos-auto-update";
+      ExecStart = "/etc/nixos/scripts/nixos-auto-update.sh";
       StateDirectory = "nixos-auto-update";
     };
   };
