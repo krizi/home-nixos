@@ -21,7 +21,6 @@
     {
       nixosConfigurations = {
         k8s-master-01 = lib.nixosSystem {
-          inherit system;
           system = "x86_64-linux";
           modules = [
             ./hosts/k8s-master-01.nix
@@ -33,7 +32,6 @@
         };
 
         k8s-worker-vm-01 = lib.nixosSystem {
-          inherit system;
           system = "x86_64-linux";
           modules = [
             ./hosts/k8s-worker-vm-01.nix
@@ -45,7 +43,6 @@
         };
 
         k8s-worker-rpi-01 = lib.nixosSystem {
-          inherit system;
           system = "aarch64-linux";
           modules = [
             ./hosts/k8s-worker-rpi-01
