@@ -7,10 +7,6 @@
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
 
-    environment = {
-      K3S_KUBECONFIG_MODE = "644";
-    };
-
     serviceConfig = {
       Type = "notify";
 
@@ -18,7 +14,8 @@
         ${pkgs.k3s}/bin/k3s server \
           --disable traefik \
           --node-name ${config.networking.hostName} \
-          ${config.environment.variables.K3S_NODE_LABEL_FLAGS}
+          ${config.environment.variables.K3S_NODE_LABEL_FLAGS} \
+          --write-kubeconfig-mode value 644
       '';
 
       Restart = "always";

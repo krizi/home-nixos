@@ -1,5 +1,3 @@
-# modules/k3s-node-labels.nix
-
 { config, lib, ... }:
 
 with lib;
@@ -12,11 +10,10 @@ with lib;
   };
 
   config = {
-    # Generiert die Flags:  --node-label key=value
-    environment.variables.K3S_NODE_LABEL_FLAGS =
-      builtins.concatStringsSep " "
-        (map (kv: "--node-label ${kv}")
-             (map (key: "${key}=${config.k3s.nodeLabels.${key}}")
-                  (builtins.attrNames config.k3s.nodeLabels)));
+    environment.variables.K3S_NODE_LABEL_FLAGS = builtins.concatStringsSep " " (
+      map (kv: "--node-label ${kv}") (
+        map (key: "${key}=${config.k3s.nodeLabels.${key}}") (builtins.attrNames config.k3s.nodeLabels)
+      )
+    );
   };
 }

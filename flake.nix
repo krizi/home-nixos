@@ -8,13 +8,20 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     let
       # Für VMs auf Apple Silicon: "aarch64-linux"
       # Für normale x86_64-Kisten: "x86_64-linux"
       system = "aarch64-linux";
       lib = nixpkgs.lib;
-    in {
+    in
+    {
       nixosConfigurations = {
         k8s-master-01 = lib.nixosSystem {
           inherit system;

@@ -44,3 +44,5 @@ git clone https://github.com/krizi/home-nixos.git /mnt/etc/nixos
 ```bash
 scp kubernetes@k8s-master-01:/etc/rancher/k3s/k3s.yaml $HOME/.kube/config
 ```
+
+# Raspberry Pi Setup
