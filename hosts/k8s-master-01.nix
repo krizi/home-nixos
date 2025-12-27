@@ -6,6 +6,7 @@
     ../modules/k3s-common.nix
     ../modules/user-kubernetes.nix
     ../modules/k3s-server.nix
+    ../modules/auto-update.nix
   ];
 
   networking.hostName = "k8s-master-01";
