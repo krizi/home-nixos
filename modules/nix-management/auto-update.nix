@@ -1,8 +1,19 @@
 { config, pkgs, ... }:
 
+let
+  autoUpdateCli = pkgs.writeShellScriptBin "auto-update" ''
+    #!/usr/bin/env bash
+    set -euo pipefail
+    sudo systemctl start nixos-auto-update.service
+  '';
+in
 {
+  environment.systemPackages = [
+    autoUpdateCli
+  ];
+
   systemd.services.nixos-auto-update = {
-    description = "Auto-update NixOS from Git with Prometheus metrics";
+    description = "Auto-update NixOS from Git";
 
     path = [
       pkgs.coreutils
@@ -13,25 +24,19 @@
 
     serviceConfig = {
       Type = "oneshot";
-
       ExecStart = "${pkgs.bash}/bin/bash /etc/nixos/modules/nix-management/scripts/nixos-auto-update.sh";
 
       StateDirectory = "nixos-auto-update";
-
       StandardOutput = "journal";
       StandardError = "journal";
     };
-
-    wantedBy = [ "multi-user.target" ];
   };
 
   systemd.timers.nixos-auto-update = {
-    description = "Timer for auto-updating NixOS from Git";
     wantedBy = [ "timers.target" ];
-
     timerConfig = {
-      OnCalendar = "*:0/30"; # alle 30 Minuten
-      Persistent = true; # nachholen, falls System offline war
+      OnCalendar = "*:0/30";
+      Persistent = true;
     };
   };
 }
