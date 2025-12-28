@@ -3,10 +3,10 @@
 {
   imports = [
     ./hardware/raspberry-pi-4-model-b-hardware.nix
-    ../modules/k3s-common.nix
-    ../modules/user-kubernetes.nix
-    ../modules/k3s-agent.nix
-    ../modules/auto-update.nix
+    ../modules/k3s/k3s-common.nix
+    ../modules/users/user-kubernetes.nix
+    ../modules/k3s/k3s-agent.nix
+    ../modules/nix-management/auto-update.nix
     ../modules/raspi-sd-image.nix
   ];
 

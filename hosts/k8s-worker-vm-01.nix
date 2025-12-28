@@ -3,10 +3,10 @@
 {
   imports = [
     ./hardware/hellga-vm-hardware.nix
-    ../modules/k3s-common.nix
-    ../modules/user-kubernetes.nix
-    ../modules/k3s-agent.nix
-    ../modules/auto-update.nix
+    ../modules/k3s/k3s-common.nix
+    ../modules/users/user-kubernetes.nix
+    ../modules/k3s/k3s-agent.nix
+    ../modules/nix-management/auto-update.nix
   ];
 
   networking.hostName = "k8s-worker-vm-01";
