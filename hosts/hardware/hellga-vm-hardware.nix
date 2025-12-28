@@ -38,10 +38,7 @@
     device = "/dev/vda1";
     fsType = "vfat";
   };
-
-  environment.systemPackages = with pkgs; [
-    qemu-guest-agent
-  ];
+  services.qemuGuest.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
