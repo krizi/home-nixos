@@ -10,6 +10,21 @@
     font = "Lat2-Terminus16";
   };
 
+  programs.zsh.enable = true;
+
+  users.defaultUserShell = pkgs.zsh;
+
+  programs.zsh.ohMyZsh = {
+    enable = true;
+    theme = "agnoster";
+    plugins = [
+      "git"
+      "sudo"
+      "colored-man-pages"
+      "z"
+    ];
+  };
+
   services.openssh = {
     enable = true;
     settings = {
