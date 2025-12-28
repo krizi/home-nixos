@@ -14,7 +14,7 @@
     serviceConfig = {
       Type = "oneshot";
 
-      ExecStart = "/etc/nixos/scripts/nixos-auto-update.sh";
+      ExecStart = "/etc/nixos/modules/nix-management/scripts/nixos-auto-update.sh";
 
       StateDirectory = "nixos-auto-update";
 

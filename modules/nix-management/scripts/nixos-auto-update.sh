@@ -4,7 +4,6 @@ set -euo pipefail
 exec 2>&1
 
 REPO_DIR="/etc/nixos"
-HOSTNAME="$(hostname)"
 STATE_DIR="/var/lib/nixos-auto-update"
 METRICS_FILE="$STATE_DIR/metrics.prom"
 
