@@ -16,7 +16,7 @@
     "topology.kubernetes.io/zone" = "hellga";
   };
 
+  # used to build rpi image
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nix.settings.extra-platforms = [ "aarch64-linux" ];
-
 }

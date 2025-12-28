@@ -127,7 +127,7 @@ git pull --rebase
 # Nach dem Pull Local-Head und Branch aktualisieren
 GIT_LOCAL_HEAD="$(git rev-parse HEAD || echo unknown)"
 GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD || echo "$GIT_BRANCH")"
-
+nixos-rebuild build --flake ".#$HOSTNAME"
 if nixos-rebuild build --flake ".#$HOSTNAME"; then
   log "Build OK. Switch wird ausgeführt..."
   nixos-rebuild switch --flake ".#$HOSTNAME" --no-write-lock-file

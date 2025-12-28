@@ -39,6 +39,10 @@
     fsType = "vfat";
   };
 
+  environment.systemPackages = with pkgs; [
+    qemu-guest-agent
+  ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 }
