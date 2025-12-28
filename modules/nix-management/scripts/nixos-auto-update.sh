@@ -84,7 +84,12 @@ fi
 
 cd "$REPO_DIR"
 
-# Versuche Git-Infos so früh wie möglich zu holen
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  log "Lokale uncommittete Änderungen gefunden – resette Working Tree auf HEAD."
+  git reset --hard
+  git clean -fd
+fi
+
 if git rev-parse --abbrev-ref HEAD >/dev/null 2>&1; then
   GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD || echo unknown)"
 fi
