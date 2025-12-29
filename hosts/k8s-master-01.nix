@@ -19,7 +19,10 @@
 
     spec = {
       api = {
-        address = "k8s-master-01";
+        address = "192.168.4.175";
+        sans = [
+          "k8s-master-01"
+        ];
       };
       network = {
         kubeProxy = {
