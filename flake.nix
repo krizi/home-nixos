@@ -2,10 +2,14 @@
   description = "NixOS K8s lab: master + worker VM";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-24.05";
+    };
 
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     k0s-nix = {
       url = "github:johbo/k0s-nix";
@@ -33,12 +37,6 @@
             ./modules/common.nix
             ./modules/users/user-kubernetes.nix
             home-manager.nixosModules.home-manager
-            (
-              { ... }:
-              {
-                nixpkgs.overlays = [ k0s-nix.overlays.default ];
-              }
-            )
             k0s-nix.nixosModules.default
           ];
         };
