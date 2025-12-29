@@ -37,6 +37,12 @@
             ./modules/common.nix
             ./modules/users/user-kubernetes.nix
             home-manager.nixosModules.home-manager
+            (
+              { ... }:
+              {
+                nixpkgs.overlays = [ k0s-nix.overlays.default ];
+              }
+            )
             k0s-nix.nixosModules.default
           ];
         };
