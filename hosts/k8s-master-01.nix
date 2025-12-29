@@ -18,12 +18,16 @@
     dataDir = "/var/lib/k0s";
 
     spec = {
+      api = {
+        address = "k8s-master-01";
+      };
       network = {
         kubeProxy = {
           disabled = true;
         };
       };
     };
+    package = pkgs.k0s;
   };
 
   # used to build rpi image
