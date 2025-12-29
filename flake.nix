@@ -37,7 +37,7 @@
             ./modules/common.nix
             ./modules/users/user-kubernetes.nix
             home-manager.nixosModules.home-manager
-            k0s-nix.nixosModules
+            k0s-nix.nixosModules.default
           ];
         };
 
