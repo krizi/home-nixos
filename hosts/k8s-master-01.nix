@@ -33,6 +33,10 @@
     package = pkgs.k0s;
   };
 
+  environment.systemPackages = [
+    pkgs.k0s
+  ];
+
   # used to build rpi image
   #  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   #  nix.settings.extra-platforms = [ "aarch64-linux" ];

@@ -45,6 +45,7 @@
     curl
     wget
     zsh
+    kubernetes
   ];
 
   system.stateVersion = "24.05";
