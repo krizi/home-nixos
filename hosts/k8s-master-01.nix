@@ -4,7 +4,6 @@
   imports = [
     ./hardware/hellga-vm-hardware.nix
     ../modules/users/user-kubernetes.nix
-    ../modules/k0s.nix
     ../modules/nix-management/auto-update.nix
   ];
 
