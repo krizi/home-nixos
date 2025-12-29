@@ -6,6 +6,11 @@
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    k0s-nix = {
+      url = "github:johbo/k0s-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -13,6 +18,7 @@
       self,
       nixpkgs,
       home-manager,
+      k0s-nix,
       ...
     }:
     let
@@ -25,9 +31,15 @@
           modules = [
             ./hosts/k8s-master-01.nix
             ./modules/common.nix
-            ./modules/k3s/k3s-node-labels.nix
             ./modules/users/user-kubernetes.nix
             home-manager.nixosModules.home-manager
+            (
+              { ... }:
+              {
+                nixpkgs.overlays = [ k0s-nix.overlays.default ];
+              }
+            )
+            k0s-nix.nixosModules.default
           ];
         };
 

@@ -3,17 +3,30 @@
 {
   imports = [
     ./hardware/hellga-vm-hardware.nix
-    ../modules/k3s/k3s-common.nix
     ../modules/users/user-kubernetes.nix
-    ../modules/k3s/k3s-server.nix
+    ../modules/k0s.nix
     ../modules/nix-management/auto-update.nix
   ];
 
   networking.hostName = "k8s-master-01";
 
-  k3s.nodeLabels = {
-    "topology.kubernetes.io/region" = "ch-central";
-    "topology.kubernetes.io/zone" = "hellga";
+  # k0s Controller
+  services.k0s = {
+    enable = true;
+    isLeader = true;
+    role = "controller";
+    clusterName = "hellga";
+    # typischer Datenordner
+    dataDir = "/var/lib/k0s";
+
+    spec = {
+      network = {
+        kubeProxy = {
+          disabled = true;
+        };
+      };
+    };
+
   };
 
   # used to build rpi image

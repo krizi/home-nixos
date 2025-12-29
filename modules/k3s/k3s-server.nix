@@ -16,6 +16,7 @@
           --node-name ${config.networking.hostName} \
           ${config.environment.variables.K3S_NODE_LABEL_FLAGS} \
           --write-kubeconfig-mode value 644
+          --disable-network-policy
       '';
 
       Restart = "always";
