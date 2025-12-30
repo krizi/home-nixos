@@ -22,7 +22,6 @@
     isLeader = true;
     role = "controller";
     clusterName = "hellga";
-    # typischer Datenordner
     dataDir = "/var/lib/k0s";
 
     spec = {

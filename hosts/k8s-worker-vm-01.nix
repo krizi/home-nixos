@@ -25,11 +25,23 @@
     enable = true;
     role = "worker";
 
+    clusterName = "hellga";
+    dataDir = "/var/lib/k0s";
     tokenFile = "/etc/k0s/k0stoken";
 
     spec = {
       api = {
         address = "192.168.4.175";
+        externalAddress = "k8s-master-01";
+        sans = [
+          "192.168.4.175"
+          "k8s-master-01"
+        ];
+      };
+      network = {
+        kubeProxy = {
+          disabled = true;
+        };
       };
     };
     # optional: Labels
