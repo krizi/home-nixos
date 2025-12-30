@@ -20,6 +20,7 @@
     spec = {
       api = {
         address = "192.168.4.175";
+        externalAddress = "k8s-master-01";
         sans = [
           "k8s-master-01"
         ];
