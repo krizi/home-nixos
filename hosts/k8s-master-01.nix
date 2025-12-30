@@ -21,6 +21,10 @@
       api = {
         address = "192.168.4.175";
         externalAddress = "k8s-master-01";
+        sans = [
+          "192.168.4.175"
+          "k8s-master-01"
+        ];
       };
       network = {
         kubeProxy = {
