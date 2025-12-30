@@ -10,13 +10,11 @@
   networking = {
     hostName = "k8s-master-01";
     firewall = {
-      enable = true; # ist bei dir offensichtlich an
+      enable = true;
       allowedTCPPorts = [
         22
         6443
       ];
-      # optional zum Debuggen:
-      # logRefusedConnections = true;
     };
   };
   services.k0s = {
@@ -44,6 +42,10 @@
     };
     package = pkgs.k0s;
   };
+
+  environment.systemPackages = [
+    pkgs.k0s
+  ];
 
   # used to build rpi image
   #  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
