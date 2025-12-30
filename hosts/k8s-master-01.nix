@@ -11,6 +11,20 @@
     hostName = "k8s-master-01";
     firewall = {
       enable = true;
+      allowedUDPPortRanges = [
+        {
+          from = 8472;
+          to = 8472;
+        }
+        {
+          from = 53;
+          to = 53;
+        }
+        {
+          from = 30000;
+          to = 32767;
+        }
+      ];
       allowedTCPPorts = [
         22
         2380
