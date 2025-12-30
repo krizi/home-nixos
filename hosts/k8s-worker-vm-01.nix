@@ -27,6 +27,11 @@
 
     tokenFile = "/etc/k0s/k0stoken";
 
+    spec = {
+      api = {
+        address = "192.168.4.175";
+      };
+    };
     # optional: Labels
     # extraArgs = [
     #   "--labels zone=arm"
