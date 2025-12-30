@@ -7,8 +7,18 @@
     ../modules/nix-management/auto-update.nix
   ];
 
-  networking.hostName = "k8s-master-01";
-
+  networking = {
+    hostName = "k8s-master-01";
+    firewall = {
+      enable = true; # ist bei dir offensichtlich an
+      allowedTCPPorts = [
+        22
+        6443
+      ];
+      # optional zum Debuggen:
+      # logRefusedConnections = true;
+    };
+  };
   services.k0s = {
     enable = true;
     isLeader = true;
@@ -34,10 +44,6 @@
     };
     package = pkgs.k0s;
   };
-
-  environment.systemPackages = [
-    pkgs.k0s
-  ];
 
   # used to build rpi image
   #  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
