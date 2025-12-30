@@ -24,6 +24,10 @@
           from = 30000;
           to = 32767;
         }
+        {
+          from = 51871;
+          to = 51890;
+        }
       ];
       allowedTCPPorts = [
         22
