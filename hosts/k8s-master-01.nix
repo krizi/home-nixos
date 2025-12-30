@@ -10,7 +10,7 @@
   networking = {
     hostName = "k8s-master-01";
     firewall = {
-      enable = true;
+      enable = falseq;
       allowedUDPPortRanges = [
         {
           from = 8472;

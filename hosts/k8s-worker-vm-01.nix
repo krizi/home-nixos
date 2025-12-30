@@ -10,7 +10,7 @@
   networking = {
     hostName = "k8s-worker-vm-01";
     firewall = {
-      enable = true;
+      enable = false;
       allowedTCPPorts = [
         22
         2380
