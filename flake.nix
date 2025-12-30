@@ -52,9 +52,15 @@
           modules = [
             ./hosts/k8s-worker-vm-01.nix
             ./modules/common.nix
-            ./modules/k3s/k3s-node-labels.nix
             ./modules/users/user-kubernetes.nix
             home-manager.nixosModules.home-manager
+            (
+              { ... }:
+              {
+                nixpkgs.overlays = [ k0s-nix.overlays.default ];
+              }
+            )
+            k0s-nix.nixosModules.default
           ];
         };
 
