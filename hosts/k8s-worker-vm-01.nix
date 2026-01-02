@@ -9,9 +9,6 @@
 
   networking = {
     hostName = "k8s-worker-vm-01";
-    firewall = {
-      enable = false;
-    };
   };
 
   environment.etc."k0s/k0stoken".text = builtins.readFile ../tokens/k0s-token.txt;
