@@ -7,12 +7,8 @@
     ../modules/nix-management/auto-update.nix
   ];
 
-  networking = {
-    hostName = "k8s-master-01";
-    firewall = {
-      enable = false;
-    };
-  };
+  networking.hostName = "k8s-master-01";
+
   services.k0s = {
     enable = true;
     isLeader = true;

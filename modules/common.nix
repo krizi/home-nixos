@@ -10,6 +10,24 @@
     font = "Lat2-Terminus16";
   };
 
+  networking = {
+    firewall = {
+      enable = true;
+      networking.firewall.allowedTCPPortRanges = [
+        {
+          from = 30000;
+          to = 32767;
+        }
+      ];
+      networking.firewall.allowedUDPPortRanges = [
+        {
+          from = 30000;
+          to = 32767;
+        }
+      ];
+    };
+  };
+
   programs.zsh.enable = true;
 
   users.defaultUserShell = pkgs.zsh;
