@@ -69,10 +69,15 @@
           modules = [
             ./hosts/k8s-worker-rpi-01.nix
             ./modules/common.nix
-            ./modules/k3s/k3s-node-labels.nix
             ./modules/users/user-kubernetes.nix
-            ./modules/raspi-sd-image.nix
             home-manager.nixosModules.home-manager
+            (
+              { ... }:
+              {
+                nixpkgs.overlays = [ k0s-nix.overlays.default ];
+              }
+            )
+            k0s-nix.nixosModules.default
           ];
         };
 
