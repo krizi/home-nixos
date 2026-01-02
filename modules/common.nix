@@ -24,6 +24,16 @@
         4240 # Cilium / Hubble (Basis)
         4244 # Hubble (optional)
         4245 # Hubble (optional)
+        10248 # kublet
+        9234 # cilium operator
+        9891 # cilium operator
+        42973 # containerd
+        9890 # cilium agent
+        9878 # cilium envoy
+        9964 # cilium envoy
+        38455 # cilium agent
+        20244 # kube router
+        9963 # cilium operator
       ];
 
       # Eingehende UDP-Ports
