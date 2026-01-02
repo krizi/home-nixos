@@ -15,23 +15,8 @@
     role = "controller";
     clusterName = "hellga";
     dataDir = "/var/lib/k0s";
+    configText = builtins.readFile ../k0s.cluster.yaml;
 
-    spec = {
-      api = {
-        address = "192.168.4.175";
-        externalAddress = "k8s-master-01";
-        sans = [
-          "192.168.4.175"
-          "k8s-master-01"
-        ];
-      };
-      network = {
-        kubeProxy = {
-          disabled = true;
-        };
-        provider = "custom";
-      };
-    };
     package = pkgs.k0s;
   };
 

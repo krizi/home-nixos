@@ -1,0 +1,15 @@
+apiVersion: k0s.k0sproject.io/v1beta1
+kind: Cluster
+metadata:
+  name: k0s
+spec:
+  api:
+    address: 192.168.4.175
+    sans:
+      - k8s-master-01
+  network:
+    kubeProxy:
+      disabled: true
+    provider: custom
+    podCIDR: 10.244.0.0/16
+    serviceCIDR: 10.96.0.0/12
