@@ -44,4 +44,7 @@
     # ];
   };
 
+  environment.systemPackages = [
+    pkgs.k0s
+  ];
 }
