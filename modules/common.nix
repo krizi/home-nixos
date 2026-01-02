@@ -13,6 +13,24 @@
   networking = {
     firewall = {
       enable = true;
+
+      # Eingehende TCP-Ports
+      allowedTCPPorts = [
+        22 # SSH
+        6443 # Kubernetes API-Server (k0s Controller)
+        9443 # Konnectivity / k0s control-plane (Logs/Exec/Tunnel)
+        10250 # kubelet API
+        8132 # k0s intern / supervisory (je nach Setup)
+        4240 # Cilium / Hubble (Basis)
+        4244 # Hubble (optional)
+        4245 # Hubble (optional)
+      ];
+
+      # Eingehende UDP-Ports
+      allowedUDPPorts = [
+        8472 # Cilium VXLAN Overlay
+      ];
+
       allowedTCPPortRanges = [
         {
           from = 30000;
