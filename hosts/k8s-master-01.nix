@@ -29,6 +29,7 @@
         kubeProxy = {
           disabled = true;
         };
+        provider = "custom";
       };
     };
     package = pkgs.k0s;
