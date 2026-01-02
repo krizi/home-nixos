@@ -32,7 +32,6 @@
     "br_netfilter"
     "overlay"
   ];
-
   swapDevices = [ ];
 
   boot.supportedFilesystems = lib.mkForce [

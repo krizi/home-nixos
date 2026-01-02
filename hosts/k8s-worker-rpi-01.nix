@@ -10,7 +10,7 @@
 
   networking.hostName = "k8s-worker-rpi-01";
 
-  environment.etc."k0s/k0stoken".text = builtins.readFile ../tokens/k0s-token.txt;
+  environment.etc."k0s/k0stoken".text = builtins.readFile ../tokens/k8s-worker-rpi-01.txt;
 
   # k0s worker service aktivieren
   services.k0s = {
