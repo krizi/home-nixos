@@ -13,13 +13,13 @@
   networking = {
     firewall = {
       enable = true;
-      networking.firewall.allowedTCPPortRanges = [
+      allowedTCPPortRanges = [
         {
           from = 30000;
           to = 32767;
         }
       ];
-      networking.firewall.allowedUDPPortRanges = [
+      allowedUDPPortRanges = [
         {
           from = 30000;
           to = 32767;
