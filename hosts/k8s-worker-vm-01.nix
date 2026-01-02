@@ -22,21 +22,7 @@
     dataDir = "/var/lib/k0s";
     tokenFile = "/etc/k0s/k0stoken";
 
-    spec = {
-      api = {
-        address = "192.168.4.175";
-        externalAddress = "k8s-master-01";
-        sans = [
-          "192.168.4.175"
-          "k8s-master-01"
-        ];
-      };
-      network = {
-        kubeProxy = {
-          disabled = true;
-        };
-      };
-    };
+    configText = builtins.readFile ../k0s.cluster.yaml;
     # optional: Labels
     # extraArgs = [
     #   "--labels zone=arm"
