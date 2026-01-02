@@ -12,68 +12,7 @@
 
   networking = {
     firewall = {
-      enable = true;
-
-      # Eingehende TCP-Ports
-      allowedTCPPorts = [
-        22 # SSH
-        6443 # Kubernetes API-Server (k0s Controller)
-        9443 # Konnectivity / k0s control-plane (Logs/Exec/Tunnel)
-        10250 # kubelet API
-        8132 # k0s intern / supervisory (je nach Setup)
-        8133 # konnectiity
-        4240 # Cilium / Hubble (Basis)
-        4244 # Hubble (optional)
-        4245 # Hubble (optional)
-        10248 # kublet
-        9234 # cilium operator
-        9891 # cilium operator
-        42973 # containerd
-        9890 # cilium agent
-        9878 # cilium envoy
-        9964 # cilium envoy
-        38455 # cilium agent
-        20244 # kube router
-        9963 # cilium operator
-        2380 # k0s etcd
-        179 # k0s kube-router
-      ];
-
-      # Eingehende UDP-Ports
-      allowedUDPPorts = [
-        8472 # Cilium VXLAN Overlay
-        6443 # Kubernetes API-Server (k0s Controller)
-        9443 # Konnectivity / k0s control-plane (Logs/Exec/Tunnel)
-        10250 # kubelet API
-        8132 # k0s intern / supervisory (je nach Setup)
-        4240 # Cilium / Hubble (Basis)
-        4244 # Hubble (optional)
-        4245 # Hubble (optional)
-        10248 # kublet
-        9234 # cilium operator
-        9891 # cilium operator
-        42973 # containerdq
-        9890 # cilium agent
-        9878 # cilium envoy
-        9964 # cilium envoy
-        38455 # cilium agent
-        20244 # kube router
-        9963 # cilium operator
-        4789 # calico
-      ];
-
-      allowedTCPPortRanges = [
-        {
-          from = 30000;
-          to = 32767;
-        }
-      ];
-      allowedUDPPortRanges = [
-        {
-          from = 30000;
-          to = 32767;
-        }
-      ];
+      enable = false;
     };
   };
 
