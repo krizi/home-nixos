@@ -5,6 +5,7 @@
     ./hardware/raspberry-pi-4-model-b-hardware.nix
     ../modules/users/user-kubernetes.nix
     ../modules/nix-management/auto-update.nix
+    ../modules/raspi-sd-image.nix
   ];
 
   networking.hostName = "k8s-worker-rpi-01";
