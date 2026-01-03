@@ -40,10 +40,6 @@
         "colored-man-pages"
         "z"
       ];
-      preLoaded = ''
-        zstyle ':omz:update' mode auto
-        zstyle ':omz:update' frequency 2
-      '';
     };
   };
 
