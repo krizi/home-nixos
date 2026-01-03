@@ -18,22 +18,21 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  programs.zsh.enable = true;
-
   users.defaultUserShell = pkgs.zsh;
 
-  programs.zsh.ohMyZsh = {
+  programs.zsh = {
     enable = true;
-    theme = "agnoster";
-    plugins = [
-      "git"
-      "sudo"
-      "colored-man-pages"
-      "z"
-    ];
+    ohMyZsh = {
+      enable = true;
+      theme = "agnoster";
+      plugins = [
+        "git"
+        "sudo"
+        "colored-man-pages"
+        "z"
+      ];
+    };
   };
-
-  programs.zsh.initExtra = builtins.readFile ../resources/oh-my-zsh/.zshrc;
 
   services.openssh = {
     enable = true;
