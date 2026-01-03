@@ -33,6 +33,8 @@
     ];
   };
 
+  home.file.".zshrc".source = ../resources/oh-my-zsh/.zshrc;
+
   services.openssh = {
     enable = true;
     settings = {
