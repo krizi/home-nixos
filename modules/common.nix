@@ -33,7 +33,7 @@
     ];
   };
 
-  home.file.".zshrc".source = ../resources/oh-my-zsh/.zshrc;
+  programs.zsh.initExtra = builtins.readFile ../resources/oh-my-zsh/.zshrc;
 
   services.openssh = {
     enable = true;
