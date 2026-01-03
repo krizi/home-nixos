@@ -22,6 +22,15 @@
 
   programs.zsh = {
     enable = true;
+    autosuggestions = {
+      enable = true;
+    };
+    syntaxHighlighting = {
+      enable = true;
+    };
+    #    setOptions = [
+    #
+    #    ];
     ohMyZsh = {
       enable = true;
       theme = "agnoster";
@@ -31,6 +40,10 @@
         "colored-man-pages"
         "z"
       ];
+      preLoaded = ''
+        zstyle ':omz:update' mode auto
+        zstyle ':omz:update' frequency 2
+      '';
     };
   };
 
