@@ -16,6 +16,8 @@
     };
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   programs.zsh.enable = true;
 
   users.defaultUserShell = pkgs.zsh;

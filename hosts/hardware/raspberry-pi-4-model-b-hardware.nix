@@ -43,6 +43,4 @@
   hardware.deviceTree.enable = true;
 
   networking.useDHCP = lib.mkDefault true;
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 }
