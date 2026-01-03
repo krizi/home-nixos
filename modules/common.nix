@@ -24,13 +24,14 @@
     enable = true;
     autosuggestions = {
       enable = true;
+      strategy = [
+        "history"
+        "completion"
+      ];
     };
     syntaxHighlighting = {
       enable = true;
     };
-    #    setOptions = [
-    #
-    #    ];
     ohMyZsh = {
       enable = true;
       theme = "agnoster";
