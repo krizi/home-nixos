@@ -34,7 +34,7 @@
     };
     ohMyZsh = {
       enable = true;
-      theme = "agnoster";
+      theme = "cypher";
       plugins = [
         "git"
         "sudo"
